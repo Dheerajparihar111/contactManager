@@ -35,6 +35,7 @@ public class Main extends Data {
                     System.out.println("Enter the name of contact");
                     input.nextLine();
                      contactName = input.nextLine();
+                     contact.add(contactName);
                     System.out.println("Enter Contact Number");
                      contactNumber = input.nextInt();
                     System.out.println("Contact Number added successfully");
@@ -53,11 +54,12 @@ public class Main extends Data {
                     break;
                 case 3:
                     System.out.println("enter contact name");
+                    input.nextLine();
                     contactName =input.nextLine();
                     if (contactName.isEmpty()){
                         System.out.println("contact list is empty");
                     }else {
-                        continue;
+                         contact.remove(contactName);
                     }
                     break;
                 case 4:
