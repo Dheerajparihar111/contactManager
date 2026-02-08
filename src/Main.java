@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 class Data{
     static String contactName;
@@ -24,6 +25,7 @@ public class Main extends Data {
     static void main(String[] args) {
         System.out.println("***********wel-come to Contact Manager*********");
         Scanner input =new Scanner(System.in);
+        ArrayList<String> contact=new ArrayList<>();
         Homepage homepage = new Homepage();
         while (true) {
             homepage.Homepage();
@@ -49,6 +51,18 @@ public class Main extends Data {
                         System.out.println("contact number not found");
                     }
                     break;
+                case 3:
+                    System.out.println("enter contact name");
+                    contactName =input.nextLine();
+                    if (contactName.isEmpty()){
+                        System.out.println("contact list is empty");
+                    }else {
+                        continue;
+                    }
+                    break;
+                case 4:
+                    System.out.println("thank you for using contact manager");
+                    System.exit(0);
             }
         }
     }
