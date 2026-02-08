@@ -1,4 +1,16 @@
 import java.util.Scanner;
+class Data{
+    static String contactName;
+    static long contactNumber;
+    String  data(String contactName){
+        this.contactName =contactName;
+        return contactName ;
+   }
+   long data(long contactNumber){
+       this.contactNumber =contactNumber;
+       return contactNumber;
+   }
+}
 class Homepage{
    void   Homepage(){
        System.out.println("Enter your choice");
@@ -8,22 +20,36 @@ class Homepage{
        System.out.println("4) exit");
     }
 }
-public class Main {
+public class Main extends Data {
     static void main(String[] args) {
         System.out.println("***********wel-come to Contact Manager*********");
         Scanner input =new Scanner(System.in);
         Homepage homepage = new Homepage();
-        homepage.Homepage();
-        int choice = input.nextInt();
-        switch (choice){
-            case 1:
-                System.out.println("Enter the name of contact");
-                input.nextLine();
-                String contactName =input.nextLine();
-                System.out.println("Enter Contact Number");
-                long cintactNUmber = input.nextInt();
-                System.out.println("Contact Number added successfully");
-
+        while (true) {
+            homepage.Homepage();
+            int choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter the name of contact");
+                    input.nextLine();
+                     contactName = input.nextLine();
+                    System.out.println("Enter Contact Number");
+                     contactNumber = input.nextInt();
+                    System.out.println("Contact Number added successfully");
+                    break;
+                case 2:
+                    System.out.println("Enter the contact name");
+                    input.nextLine();
+                  String  Name = input.nextLine();
+                    if (Name.equals(contactName)) {
+                        System.out.println("contact number exits");
+                        System.out.println(contactName);
+                        System.out.println(contactNumber);
+                    } else {
+                        System.out.println("contact number not found");
+                    }
+                    break;
+            }
         }
     }
 }
