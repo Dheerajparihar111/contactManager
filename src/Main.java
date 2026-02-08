@@ -1,13 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
+class Homepage{
+   void   Homepage(){
+       System.out.println("Enter your choice");
+       System.out.println("1) create new contact number");
+       System.out.println("2) find contact number");
+       System.out.println("3) delete contact number");
+       System.out.println("4) exit");
+    }
+}
+public class Main {
+    static void main(String[] args) {
+        System.out.println("***********wel-come to Contact Manager*********");
+        Scanner input =new Scanner(System.in);
+        Homepage homepage = new Homepage();
+        homepage.Homepage();
+        int choice = input.nextInt();
+        switch (choice){
+            case 1:
+                System.out.println("Enter the name of contact");
+                input.nextLine();
+                String contactName =input.nextLine();
+                System.out.println("Enter Contact Number");
+                long cintactNUmber = input.nextInt();
+                System.out.println("Contact Number added successfully");
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+        }
+    }
 }
