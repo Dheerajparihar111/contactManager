@@ -26,9 +26,7 @@ public class Main {
                     String name = sc.nextLine();
                     System.out.print("Enter Phone: ");
                     String phone = sc.nextLine();
-                    System.out.print("Enter Email: ");
-                    String email = sc.nextLine();
-                    service.addContact(name, phone, email);
+                    service.addContact(name, phone);
                     break;
 
                 case 2:

@@ -6,8 +6,8 @@ class ContactService {
         this.repository = repository;
     }
 
-    public void addContact(String name, String phone, String email) {
-        Contact contact = new Contact(idCounter++, name, phone, email);
+    public void addContact(String name, String phone/*, String email*/) {
+        Contact contact = new Contact(idCounter++, name, phone);
         repository.add(contact);
         System.out.println("Contact added successfully!");
     }
