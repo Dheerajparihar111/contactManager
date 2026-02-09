@@ -1,71 +1,59 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-class Data{
-    static String contactName;
-    static long contactNumber;
-    String  data(String contactName){
-        this.contactName =contactName;
-        return contactName ;
-   }
-   long data(long contactNumber){
-       this.contactNumber =contactNumber;
-       return contactNumber;
-   }
-}
-class Homepage{
-   void   Homepage(){
-       System.out.println("Enter your choice");
-       System.out.println("1) create new contact number");
-       System.out.println("2) find contact number");
-       System.out.println("3) delete contact number");
-       System.out.println("4) exit");
-    }
-}
-public class Main extends Data {
-    static void main(String[] args) {
-        System.out.println("***********wel-come to Contact Manager*********");
-        Scanner input =new Scanner(System.in);
-        ArrayList<String> contact=new ArrayList<>();
-        Homepage homepage = new Homepage();
-        while (true) {
-            homepage.Homepage();
-            int choice = input.nextInt();
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ContactRepository repository = new ContactRepository();
+        ContactService service = new ContactService(repository);
+
+        int choice;
+
+        do {
+            System.out.println("\n--- Contact Manager ---");
+            System.out.println("1. Add Contact");
+            System.out.println("2. View All Contacts");
+            System.out.println("3. Search Contact by ID");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
             switch (choice) {
                 case 1:
-                    System.out.println("Enter the name of contact");
-                    input.nextLine();
-                     contactName = input.nextLine();
-                     contact.add(contactName);
-                    System.out.println("Enter Contact Number");
-                     contactNumber = input.nextInt();
-                    System.out.println("Contact Number added successfully");
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+                    System.out.print("Enter Phone: ");
+                    String phone = sc.nextLine();
+                    System.out.print("Enter Email: ");
+                    String email = sc.nextLine();
+                    service.addContact(name, phone, email);
                     break;
+
                 case 2:
-                    System.out.println("Enter the contact name");
-                    input.nextLine();
-                  String  Name = input.nextLine();
-                    if (Name.equals(contactName)) {
-                        System.out.println("contact number exits");
-                        System.out.println(contactName);
-                        System.out.println(contactNumber);
-                    } else {
-                        System.out.println("contact number not found");
-                    }
+                    service.viewAllContacts();
                     break;
+
                 case 3:
-                    System.out.println("enter contact name");
-                    input.nextLine();
-                    contactName =input.nextLine();
-                    if (contactName.isEmpty()){
-                        System.out.println("contact list is empty");
-                    }else {
-                         contact.remove(contactName);
-                    }
+                    System.out.print("Enter Contact ID: ");
+                    int id = sc.nextInt();
+                    service.searchContact(id);
                     break;
+
                 case 4:
-                    System.out.println("thank you for using contact manager");
-                    System.exit(0);
+                    System.out.print("Enter Contact ID: ");
+                    int delId = sc.nextInt();
+                    service.deleteContact(delId);
+                    break;
+
+                case 5:
+                    System.out.println("Thank you!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
             }
-        }
+        } while (choice != 5);
     }
 }
