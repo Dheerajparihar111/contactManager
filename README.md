@@ -43,7 +43,9 @@ Contact-Manager/
 Clone the repository
 
 git clone https://github.com/Dheerajparihar111/Contact-Manager.git
+<img width="1916" height="1018" alt="contactManager output1" src="https://github.com/user-attachments/assets/57c6a675-7685-481c-b508-9b35fa53d5e6" />
 
+<img width="1910" height="1022" alt="contactManger output2" src="https://github.com/user-attachments/assets/09eb3819-1986-47a8-8646-ba07c39aee40" />
 
 Open the project in IntelliJ IDEA or any Java IDE
 
